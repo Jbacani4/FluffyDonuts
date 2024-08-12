@@ -4,6 +4,14 @@ import Contact from "./Contact";
 
 function App() {
 
+  if (window.history.scrollRestoration) {
+    window.history.scrollRestoration = 'manual';
+  } else {
+      window.onbeforeunload = function () {
+          window.scrollTo(0, 0);
+      }
+  }
+
   return (
     <div className="App">
       
