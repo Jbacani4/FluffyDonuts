@@ -71,7 +71,7 @@ const MenuIcon = styled(IoMenu)`
     right: 1.5rem;
     display: block;
     z-index: 2;
-`;
+    `;
 
 const Container = styled.div`
     flex-direction: column;
@@ -83,6 +83,7 @@ const Container = styled.div`
     position: fixed;
     right: 0;
     padding-right: 2rem;
+    z-index: 3;
 `;
 
 const LinkText = styled.a`
