@@ -54,7 +54,7 @@ const NavDesktop = () => {
                     const {text, color} = link
                     return (
 
-                        <DesktopLink key={`link-${text}`} href={`#${text}`} hoverColor={color}>{text}</DesktopLink>
+                        <DesktopLink key={`link-${text}`} href={link.text==="HOME" ? "#AppContainer" : `#${link.text}`} hoverColor={color}>{text}</DesktopLink>
                     )
                 }
                 )}
@@ -73,9 +73,12 @@ const Container = styled.div`
     justify-content: center;
     position: sticky;
     top: 0%;
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 55%, rgba(0,0,0,0.8) 80%, rgba(0,0,0,0.34) 90%, rgba(0,0,0,0.15) 95%, rgba(0,0,0,0) 100%);
+    /* background: transparent; */
+    background: linear-gradient(180deg, rgba(0,0,0,0.8) 55%, rgba(0,0,0,0.5) 80%, rgba(0,0,0,0.34) 90%, rgba(0,0,0,0.15) 95%, rgba(0,0,0,0) 100%);
     letter-spacing: 0.2rem;
-    z-index: 1;
+    z-index: 2;
+
+    /* border: 1px solid fuchsia; */
 `;
 
 const Welcome = styled.div`
@@ -90,7 +93,9 @@ const Links = styled.div`
     align-items: center;
     -webkit-animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    
+    width: 50vw;
+    justify-content: space-between;
+    /* border: 1px solid aqua; */
 `
 
 const DesktopLink = styled.a`

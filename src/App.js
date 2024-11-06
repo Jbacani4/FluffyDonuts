@@ -1,19 +1,20 @@
 import Nav from "../src/components/Nav";
-import Home from "./pages/Home";
+import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Home from "./pages/Home";
 
 function App() {
 
   if (window.history.scrollRestoration) {
     window.history.scrollRestoration = 'manual';
   } else {
-      window.onbeforeunload = function () {
-          window.scrollTo(0, 0);
-      }
+    window.onbeforeunload = () => {
+      window.scrollTo(0, 0);
+    }
   }
 
   return (
-    <div className="App">
+    <div className="App" id="AppContainer">
       
       <Nav/>
       <div id="HOME">
@@ -21,7 +22,7 @@ function App() {
       </div>
 
       <div id="ABOUT" style={{ height: "100vh"}}>
-        ABOUT
+        <About/>
       </div>
 
       <div id="CONTACT">
