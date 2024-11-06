@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { IoCloseOutline, IoMenu } from "react-icons/io5";
 import { useEffect, useState } from "react";
+import { IoCloseOutline, IoMenu } from "react-icons/io5";
+import styled from "styled-components";
 
 const NavMobile = () => {
     const links = [
@@ -64,36 +64,37 @@ const NavMobile = () => {
 export default NavMobile;
 
 const MenuIcon = styled(IoMenu)`
-  font-size: 2.5rem;
-  position: fixed;
-  top: 1rem;
-  float: right;
-  right: 1.5rem;
-  display: block;
+    font-size: 2.5rem;
+    position: fixed;
+    top: 1rem;
+    float: right;
+    right: 1.5rem;
+    display: block;
+    z-index: 2;
 `;
 
 const Container = styled.div`
-  flex-direction: column;
-  align-items: end;
-  background-color: var(--lightPink);
-  color: var(--darkPink);
-  width: 60%;
-  height: 100vh;
-  position: fixed;
-  right: 0;
-  padding-right: 2rem;
+    flex-direction: column;
+    align-items: end;
+    background-color: var(--lightPink);
+    color: var(--darkPink);
+    width: 60%;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    padding-right: 2rem;
 `;
 
 const LinkText = styled.a`
-  text-decoration: none;
-  font-size: 1.75rem;
-  font-weight: 100;
-  margin: 1.5rem 0;
-  color: var(--darkPink);
+    text-decoration: none;
+    font-size: 1.75rem;
+    font-weight: 100;
+    margin: 1.5rem 0;
+    color: var(--darkPink);
 `;
 
 const CloseIcon = styled(IoCloseOutline)`
-  font-size: 2.5rem;
-  margin-top: 2rem;
-  color: var(--darkGreen);
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    color: var(--darkGreen);
 `;

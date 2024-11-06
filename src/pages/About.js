@@ -1,29 +1,33 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import styled from 'styled-components';
 
-import coffee from "../../src/assets/coffee.jpg";
-import community from "../../src/assets/community.jpg";
-import donut from "../../src/assets/donut.jpg";
+import slides from "../assets/slides";
 
-const slides = [
-    {
-      image: coffee,
-      text: 'Coffee is more than just a drink — it’s an art form. As a 3rd Wave café, each bean is ethically sourced and each cup is crafted with care for an elevated experience.'
-    },
-    {
-      image: donut,
-      text: 'Our deliciously fluffy,  100% plant-based doughnuts are made fresh daily from scratch, with love and using only natural, organic ingredients.'
-    },
-    {
-      image: community,
-      text: 'From eco-friendly practices to local partnerships, we’re committed to creating a sustainable future and building a connected community.'
-    }
-  ];
+// import coffee from "../../src/assets/coffee.jpg";
+// import community from "../../src/assets/community.jpg";
+// import donut from "../../src/assets/donut.jpg";
+
+// const slides = [
+//     {
+//       image: coffee,
+//       text: 'Coffee is more than just a drink — it’s an art form. As a 3rd Wave café, each bean is ethically sourced and each cup is crafted with care for an elevated experience.'
+//     },
+//     {
+//       image: donut,
+//       text: 'Our deliciously fluffy,  100% plant-based doughnuts are made fresh daily from scratch, with love and using only natural, organic ingredients.'
+//     },
+//     {
+//       image: community,
+//       text: 'From eco-friendly practices to local partnerships, we’re committed to creating a sustainable future and building a connected community.'
+//     }
+//   ];
 
 const About = () => {
     
     const [currentSlide, setCurrentSlide] = useState(0);
+    const isMobile = useMediaQuery({ maxWidth: 767 });
 
     useEffect(() => {
       const interval = setInterval(() => {
@@ -32,7 +36,7 @@ const About = () => {
   
       return () => clearInterval(interval);
     }, []);
-  
+
     return (
       <SectionContainer>
         <AnimatePresence>
@@ -42,11 +46,13 @@ const About = () => {
             animate={{ y: 0 }}
             exit={{ y: '-100vh' }}
             transition={{ duration: 0.7 }}
-            bgImage={slides[currentSlide].image}
+            bgImage={ isMobile ? slides[currentSlide].mobileImage : slides[currentSlide].image }
+            width={isMobile ? "100%" : "70vw"}
+            left={isMobile ? "0" : "15vw"}
           >
             <Overlay />
-            <TextContainer>
-              <Text>{slides[currentSlide].text}</Text>
+            <TextContainer width={isMobile ? "90%" : "55vw"}>
+              <Text fontSize={isMobile ? "2rem" : "3rem"}>{slides[currentSlide].text}</Text>
             </TextContainer>
           </Slide>
         </AnimatePresence>
@@ -65,13 +71,16 @@ const SectionContainer = styled.div`
 const Slide = styled(motion.div)`
     position: absolute;
     top: 0;
-    width: 70vw;
+    width: ${(props) => props.width};
+    /* width: 70vw; */
     margin: 0 auto;
     height: 100vh;
     background-image: url(${(props) => props.bgImage});
     background-size: cover;
-    background-position: center;
-    left: 15vw;
+    /* background-position: 20% 50%; */
+    /* background-position: center; */
+    left: ${(props) => props.left};
+    /* left: 15vw; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,14 +103,18 @@ const TextContainer = styled.div`
     z-index: 2;
     top: 25%;
     display: flex;
-    width: 55vw;
+    width: ${(props) => props.width};
+    /* width: 55vw; */
     align-items: center;
     justify-content: space-around;
+
+    /* border: 2px solid fuchsia; */
 `;
 
 const Text = styled.h2`
     color: white;
-    font-size: 3rem;
+    font-size: ${(props) => props.fontSize};
+    /* font-size: 3rem; */
     font-weight: 500;
     max-width: 80%;
 `;
