@@ -54,15 +54,11 @@ const Slide = styled(motion.div)`
     position: absolute;
     top: 0;
     width: ${(props) => props.width};
-    /* width: 70vw; */
     margin: 0 auto;
     height: 100vh;
     background-image: url(${(props) => props.bgImage});
     background-size: cover;
-    /* background-position: 20% 50%; */
-    /* background-position: center; */
     left: ${(props) => props.left};
-    /* left: 15vw; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,17 +82,13 @@ const TextContainer = styled.div`
     top: 25%;
     display: flex;
     width: ${(props) => props.width};
-    /* width: 55vw; */
     align-items: center;
     justify-content: space-around;
-
-    /* border: 2px solid fuchsia; */
 `;
 
 const Text = styled.h2`
     color: white;
     font-size: ${(props) => props.fontSize};
-    /* font-size: 3rem; */
     font-weight: 500;
     max-width: 80%;
 `;
