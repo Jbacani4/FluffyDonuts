@@ -1,38 +1,20 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from 'styled-components';
-
 import slides from "../assets/slides";
-
-// import coffee from "../../src/assets/coffee.jpg";
-// import community from "../../src/assets/community.jpg";
-// import donut from "../../src/assets/donut.jpg";
-
-// const slides = [
-//     {
-//       image: coffee,
-//       text: 'Coffee is more than just a drink — it’s an art form. As a 3rd Wave café, each bean is ethically sourced and each cup is crafted with care for an elevated experience.'
-//     },
-//     {
-//       image: donut,
-//       text: 'Our deliciously fluffy,  100% plant-based doughnuts are made fresh daily from scratch, with love and using only natural, organic ingredients.'
-//     },
-//     {
-//       image: community,
-//       text: 'From eco-friendly practices to local partnerships, we’re committed to creating a sustainable future and building a connected community.'
-//     }
-//   ];
+import LanguageContext from "../components/LanguageContext";
 
 const About = () => {
     
     const [currentSlide, setCurrentSlide] = useState(0);
+    const { language } = useContext(LanguageContext);
     const isMobile = useMediaQuery({ maxWidth: 767 });
 
     useEffect(() => {
       const interval = setInterval(() => {
         setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-      }, 5000); // Change slides every 5 seconds
+      }, 7000); // Change slides every 5 seconds
   
       return () => clearInterval(interval);
     }, []);
@@ -45,14 +27,14 @@ const About = () => {
             initial={{ y: '100vh' }}
             animate={{ y: 0 }}
             exit={{ y: '-100vh' }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 1 }}
             bgImage={ isMobile ? slides[currentSlide].mobileImage : slides[currentSlide].image }
             width={isMobile ? "100%" : "70vw"}
             left={isMobile ? "0" : "15vw"}
           >
             <Overlay />
             <TextContainer width={isMobile ? "90%" : "55vw"}>
-              <Text fontSize={isMobile ? "2rem" : "3rem"}>{slides[currentSlide].text}</Text>
+              <Text fontSize={isMobile ? "2rem" : "3rem"}>{slides[currentSlide][language]}</Text>
             </TextContainer>
           </Slide>
         </AnimatePresence>

@@ -1,3 +1,5 @@
+import { LanguageProvider } from '../src/components/LanguageContext';
+
 import Nav from "../src/components/Nav";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -14,22 +16,25 @@ function App() {
   }
 
   return (
-    <div className="App" id="AppContainer">
-      
-      <Nav/>
-      <div id="HOME">
-        <Home/>
-      </div>
+    <LanguageProvider>
+      <div className="App" id="AppContainer">
+        
+        <Nav/>
+        <div id="HOME">
+          <Home/>
+        </div>
 
-      <div id="ABOUT" style={{ height: "100vh"}}>
-        <About/>
-      </div>
+        <div id="ABOUT" style={{ height: "100vh"}}>
+          <About/>
+        </div>
 
-      <div id="CONTACT">
-        <Contact />
-      </div>
+        <div id="CONTACT">
+          <Contact />
+        </div>
 
-    </div>
+      </div>
+    </LanguageProvider>
+    
   );
 }
 

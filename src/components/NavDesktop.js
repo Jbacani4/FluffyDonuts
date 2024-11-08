@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import MmDonut from "../assets/mm_donut.PNG";
+import LanguageContext from "./LanguageContext";
 
 const NavDesktop = () => {
     const links = [
@@ -40,6 +41,7 @@ const NavDesktop = () => {
         }
     }, [])
 
+    const { toggleLanguage } = useContext(LanguageContext)
 
     return (
         <Container>
@@ -54,7 +56,7 @@ const NavDesktop = () => {
                     const {text, color} = link
                     return (
 
-                        <DesktopLink key={`link-${text}`} href={link.text==="HOME" ? "#AppContainer" : `#${link.text}`} hoverColor={color}>{text}</DesktopLink>
+                        <DesktopLink key={`link-${text}`} href={link.text==="HOME" ? "#AppContainer" : `#${link.text}`} hoverColor={color} onClick={link.text === "FR" ? toggleLanguage : null}>{text}</DesktopLink>
                     )
                 }
                 )}
