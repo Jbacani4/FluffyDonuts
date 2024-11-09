@@ -5,29 +5,6 @@ import MmDonut from "../assets/mm_donut.PNG";
 import LanguageContext from "./LanguageContext";
 
 const NavDesktop = () => {
-    const links = [
-        {
-            text: "HOME",
-            color: "var(--darkGreen)",
-            active: false
-        },
-        {
-            text: "ABOUT",
-            color: "var(--lightGreen)",
-            active: false
-        },
-        {
-            text: "CONTACT",
-            color: "var(--darkPink)",
-            active: false
-        },
-        {
-            text: "FR",
-            color: "var(--lightPink)",
-            active: false
-        },
-    ];
-
 
     useEffect(()=> {
         
@@ -41,25 +18,51 @@ const NavDesktop = () => {
         }
     }, [])
 
-    const { toggleLanguage } = useContext(LanguageContext)
+    const { language, texts, toggleLanguage } = useContext(LanguageContext)
+
+    const {greeting, menu} = texts[language] 
+
+    const links = [
+        {
+            text: menu[0],
+            color: "var(--darkGreen)",
+            active: false
+        },
+        {
+            text: menu[1],
+            color: "var(--lightGreen)",
+            active: false
+        },
+        {
+            text: menu[2],
+            color: "var(--darkPink)",
+            active: false
+        },
+        {
+            text: menu[3],
+            color: "var(--lightPink)",
+            active: false
+        },
+    ];
 
     return (
         <Container>
             <Welcome id="welcome" className={"scale-welcome"}>
                 <Donut src={MmDonut}/>
-                <Text>WELCOME 👋</Text>
+                <Text>{greeting} 👋</Text>
             </Welcome>
 
             <Links id="links">
                 {links.map((link) => {
 
                     const {text, color} = link
+                    const isLanguageLink = link.text === "FR" || link.text === "EN"
+
                     return (
 
-                        <DesktopLink key={`link-${text}`} href={link.text==="HOME" ? "#AppContainer" : `#${link.text}`} hoverColor={color} onClick={link.text === "FR" ? toggleLanguage : null}>{text}</DesktopLink>
+                        <DesktopLink key={`link-${text}`} href={link.text==="HOME" ? "#AppContainer" : `#${link.text}`} hoverColor={color} onClick={isLanguageLink ? toggleLanguage : null}>{text}</DesktopLink>
                     )
-                }
-                )}
+                })}
             </Links>
         </Container>
     );

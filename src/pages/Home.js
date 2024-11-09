@@ -1,16 +1,21 @@
+import { useContext } from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
+import LanguageContext from "../components/LanguageContext";
+
 
 import { HiArrowLongDown } from "react-icons/hi2";
 
 import FluffyDonutsFullLogo from "../assets/fd_fullLogo.png";
-// import FluffyDonutsFullLogo from "./assets/FluffyDonutsFullLogo.png";
 import FluffyDonutsName from "../assets/fd_title.png";
 import igIcon from "../assets/igIcon.png";
 
 
 const Home = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  const { language, texts } = useContext(LanguageContext)
+  
+  const {tagline} = texts[language] 
 
   return (
     <Container>
@@ -18,7 +23,8 @@ const Home = () => {
       <FluffyLogo id="homeLogo" className="scale-fluffy" src={isMobile ? FluffyDonutsFullLogo : FluffyDonutsName} />
       <Tagline
         width={isMobile ? "55%" : "auto"}>
-        PLANT-BASED, COFFEE, DONUTS {isMobile && <br />}& GOOD VIBES
+        {tagline}
+        {/* PLANT-BASED, COFFEE, DONUTS {isMobile && <br />}& GOOD VIBES */}
       </Tagline>
       {!isMobile && (
         <IgLink className="scale-fluffy"

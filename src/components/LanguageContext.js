@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-
+import texts from "../assets/texts";
 // const texts = {
 //     en: {
 //         greeting: "WELCOME",
@@ -27,7 +27,7 @@ export const LanguageProvider = ({ children }) => {
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage}}>
+    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage, texts}}>
       {children}
     </LanguageContext.Provider>
   );
