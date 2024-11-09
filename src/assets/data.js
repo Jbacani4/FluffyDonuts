@@ -5,12 +5,35 @@ import community_mobile from "../../src/assets/community_mobile.jpg";
 import donut from "../../src/assets/donut.jpg";
 import donut_mobile from "../../src/assets/donut_mobile.jpg";
 
+const colors = {
+    darkGreen: "var(--darkGreen)",
+    lightGreen: "var(--lightGreen)",
+    darkPink: "var(--darkPink)",
+    lightPink: "var(--lightPink)"
+}
+
+const texts = {
+    en: {
+        greeting: "WELCOME",
+        tagline: "PLANT-BASED, COFFEE, DONUTS & GOOD VIBES",
+        menu: ["HOME", "ABOUT", "CONTACT", "FR"],
+        contact: ["HOURS", "ADDRESS", "EMAIL", "PHONE"]
+    },
+    fr: {
+        greeting: "BIENVENUE",
+        tagline: "tagline français",
+        menu: ["ACCUEIL", "À PROPOS", "CONTACT", "EN"],
+        contact: ["HEURES", "ADDRESSE", "COURRIEL", "TÉLÉPHONE"]
+    }
+};
+
+
 const slides = [
     {
-      image: coffee,
-      mobileImage: coffee_mobile,
-      en: 'Coffee is more than just a drink — it’s an art form. As a 3rd Wave café, each bean is ethically sourced and each cup is crafted with care for an elevated experience.',
-      fr:"Le café, c'est bien plus qu'une boisson — c'est un art de vivre. En tant que café 3rd Wave, chaque grain est choisi de manière éthique et chaque tasse préparée avec soin pour offrir une expérience élevée."
+        image: coffee,
+        mobileImage: coffee_mobile,
+        en: 'Coffee is more than just a drink — it’s an art form. As a 3rd Wave café, each bean is ethically sourced and each cup is crafted with care for an elevated experience.',
+        fr:"Le café, c'est bien plus qu'une boisson — c'est un art de vivre. En tant que café 3rd Wave, chaque grain est choisi de manière éthique et chaque tasse préparée avec soin pour offrir une expérience élevée."
     },
     {
         image: donut,
@@ -24,6 +47,6 @@ const slides = [
         en: 'From eco-friendly practices to local partnerships, we’re committed to creating a sustainable future and building a connected community.',
         fr:  "De nos pratiques écoresponsables à nos partenariats locaux, nous sommes engagés à créer un avenir durable et à bâtir une communauté connectée."
     }
-  ];
+];
 
-  // export default slides
+export { colors, slides, texts };

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { useContext, useEffect } from "react";
+import { colors } from "../assets/data";
 import MmDonut from "../assets/mm_donut.PNG";
 import LanguageContext from "./LanguageContext";
 
@@ -25,22 +26,22 @@ const NavDesktop = () => {
     const links = [
         {
             text: menu[0],
-            color: "var(--darkGreen)",
+            // color: "var(--darkGreen)",
             active: false
         },
         {
             text: menu[1],
-            color: "var(--lightGreen)",
+            // color: "var(--lightGreen)",
             active: false
         },
         {
             text: menu[2],
-            color: "var(--darkPink)",
+            // color: "var(--darkPink)",
             active: false
         },
         {
             text: menu[3],
-            color: "var(--lightPink)",
+            // color: "var(--lightPink)",
             active: false
         },
     ];
@@ -53,14 +54,15 @@ const NavDesktop = () => {
             </Welcome>
 
             <Links id="links">
-                {links.map((link) => {
+                {links.map((link, index) => {
 
-                    const {text, color} = link
+                    const {text} = link
+                    // const {text, color} = link
                     const isLanguageLink = link.text === "FR" || link.text === "EN"
 
                     return (
 
-                        <DesktopLink key={`link-${text}`} href={link.text==="HOME" ? "#AppContainer" : `#${link.text}`} hoverColor={color} onClick={isLanguageLink ? toggleLanguage : null}>{text}</DesktopLink>
+                        <DesktopLink key={`link-${text}`} href={link.text==="HOME" ? "#AppContainer" : `#${link.text}`} hoverColor={colors[index]} onClick={isLanguageLink ? toggleLanguage : null}>{text}</DesktopLink>
                     )
                 })}
             </Links>

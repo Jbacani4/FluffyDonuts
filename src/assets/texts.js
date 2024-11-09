@@ -13,4 +13,4 @@ const texts = {
         }
     };
 
-    export default texts
+    // export default texts

@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from 'styled-components';
-import slides from "../assets/slides";
+import { slides } from "../assets/data";
 import LanguageContext from "../components/LanguageContext";
 
 const About = () => {

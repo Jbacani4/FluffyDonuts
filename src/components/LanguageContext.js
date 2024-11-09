@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import texts from "../assets/texts";
+import { texts } from "../assets/data";
 // const texts = {
 //     en: {
 //         greeting: "WELCOME",
