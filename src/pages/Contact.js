@@ -7,7 +7,7 @@ import igIcon from "../assets/igIcon.png";
 
 import LanguageContext from "../components/LanguageContext";
 
-const Contact = () => {
+const Contact = () => { // TODO refactor *** smaller font/ more padding? for FR ***
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const { language, texts } = useContext(LanguageContext)
   const {contact} = texts[language]
@@ -17,7 +17,7 @@ const Contact = () => {
     <>
       <FlexContainer fontSize={isMobile ? "1.25rem" : "30px"}>
         <div>
-          <SpanDiv>
+          <SpanDiv> 
             <ColoredSpan color="#BEEBD6">{contact[0]}: </ColoredSpan>
             {isMobile && <br />}
             <ColoredSpan>L à D, 8h à 17h</ColoredSpan>
@@ -48,11 +48,11 @@ const Contact = () => {
           </IgDiv>
         </div>
 
-        {!isMobile && (
+        {!isMobile && 
           <div>
             <FluffyLogo src={FluffyDonutsFullLogo} alt="FluffyDonutsLogo" />
           </div>
-        )}
+        }
       </FlexContainer>
     </>
   );
