@@ -20,31 +20,7 @@ const NavDesktop = () => {
     }, [])
 
     const { language, texts, toggleLanguage } = useContext(LanguageContext)
-
-    const {greeting, menu} = texts[language] 
-
-    const links = [
-        {
-            text: menu[0],
-            // color: "var(--darkGreen)",
-            href: "HOME"
-        },
-        {
-            text: menu[1],
-            // color: "var(--lightGreen)",
-            href: "ABOUT"
-        },
-        {
-            text: menu[2],
-            // color: "var(--darkPink)",
-            href: "CONTACT"
-        },
-        {
-            text: menu[3],
-            // color: "var(--lightPink)",
-            active: false
-        },
-    ];
+    const {greeting, nav} = texts[language] 
 
     return (
         <Container>
@@ -54,15 +30,19 @@ const NavDesktop = () => {
             </Welcome>
 
             <Links id="links">
-                {links.map((link, index) => {
-
-                    const {text} = link
-                    // const {text, color} = link
-                    const isLanguageLink = link.text === "FR" || link.text === "EN"
-
+                {nav.map((link, i) => {
+                    
+                    const color = colors[i]
+                    const href = `#section-${i}`
+                    const isLanguageLink = i === 3
+                    
                     return (
 
-                        <DesktopLink key={`link-${text}`} href={link.text==="HOME" ? "#AppContainer" : `#${link.href}`} hoverColor={colors[index]} onClick={isLanguageLink ? toggleLanguage : null}>{text}</DesktopLink>
+                        <DesktopLink hoverColor={color}>
+                            
+                            <a key={`navLink-${link}`} href={href}  onClick={isLanguageLink ? toggleLanguage : null}>{link}</a>
+                            
+                        </DesktopLink>
                     )
                 })}
             </Links>
@@ -80,12 +60,10 @@ const Container = styled.div`
     justify-content: center;
     position: sticky;
     top: 0%;
-    /* background: transparent; */
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 75%, rgba(0,0,0,0.7) 85%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0.3) 93%, rgba(0,0,0,0.1) 95%, rgba(255,255,255,0) 100%); 
     letter-spacing: 0.2rem;
     z-index: 9;
 
-    /* border: 1px solid fuchsia; */
 `;
 
 const Welcome = styled.div`
@@ -95,28 +73,34 @@ const Welcome = styled.div`
     animation: scale-welcome 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 `
 
-const Links = styled.div`
+const Links = styled.ul`
     display: none;
     align-items: center;
     -webkit-animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     width: 50vw;
-    justify-content: space-between;
-    /* border: 1px solid aqua; */
+    justify-content: space-around;
 `
 
-const DesktopLink = styled.a`
+const DesktopLink = styled.li`
     align-self: center;
-    text-decoration: none;
-    color: white;
-    padding: 1rem 2.5rem 0 2.5rem;
+    list-style-type: none;
+    padding: 1rem 1.5rem 0 2.5rem;
     transition: transform 0.2s;
     cursor: pointer;
-    
+
     &:hover {
-        color: ${(props) => props.hoverColor};
         transform: scale(1.2);
         transition: transform 0.2s;
+    }
+    
+    a {
+        &:hover {
+            color: ${(props) => props.hoverColor};
+        }
+
+        text-decoration: none;
+        color: white;
     }
 `;
 

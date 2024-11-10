@@ -17,18 +17,18 @@ function App() {
 
   return (
     <LanguageProvider>
-      <div className="App" id="AppContainer">
+      <div className="App" id="section-0">
         
         <Nav/>
-        <div id="HOME">
+        <div>
           <Home/>
         </div>
 
-        <div id="ABOUT" style={{ height: "100vh"}}>
+        <div id="section-1" style={{ height: "100vh"}}>
           <About/>
         </div>
 
-        <div id="CONTACT">
+        <div id="section-2">
           <Contact />
         </div>
 

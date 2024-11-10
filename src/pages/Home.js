@@ -24,7 +24,6 @@ const Home = () => {
       <Tagline
         width={isMobile ? "55%" : "auto"}>
         {tagline}
-        {/* PLANT-BASED, COFFEE, DONUTS {isMobile && <br />}& GOOD VIBES */}
       </Tagline>
       {!isMobile && (
         <IgLink className="scale-fluffy"

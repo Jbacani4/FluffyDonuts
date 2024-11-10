@@ -5,24 +5,19 @@ import community_mobile from "../../src/assets/community_mobile.jpg";
 import donut from "../../src/assets/donut.jpg";
 import donut_mobile from "../../src/assets/donut_mobile.jpg";
 
-const colors = {
-    darkGreen: "var(--darkGreen)",
-    lightGreen: "var(--lightGreen)",
-    darkPink: "var(--darkPink)",
-    lightPink: "var(--lightPink)"
-}
+const colors = ["var(--darkGreen)", "var(--lightGreen)", "var(--darkPink)","var(--lightPink)"]
 
 const texts = {
     en: {
         greeting: "WELCOME",
-        tagline: "PLANT-BASED, COFFEE, DONUTS & GOOD VIBES",
-        menu: ["HOME", "ABOUT", "CONTACT", "FR"],
+        tagline: "COFFEE + DONUTS. PLANT-BASED. GOOD VIBES.",
+        nav: ["HOME", "ABOUT", "CONTACT", "FR"],
         contact: ["HOURS", "ADDRESS", "EMAIL", "PHONE"]
     },
     fr: {
         greeting: "BIENVENUE",
-        tagline: "tagline français",
-        menu: ["ACCUEIL", "À PROPOS", "CONTACT", "EN"],
+        tagline: "CAFÉ + BEIGNES. PLANT-BASED. BONNES VIBES.",
+        nav: ["ACCUEIL", "À PROPOS", "CONTACT", "EN"],
         contact: ["HEURES", "ADDRESSE", "COURRIEL", "TÉLÉPHONE"]
     }
 };
@@ -49,4 +44,7 @@ const slides = [
     }
 ];
 
+
+
 export { colors, slides, texts };
+
