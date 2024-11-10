@@ -27,17 +27,17 @@ const NavDesktop = () => {
         {
             text: menu[0],
             // color: "var(--darkGreen)",
-            active: false
+            href: "HOME"
         },
         {
             text: menu[1],
             // color: "var(--lightGreen)",
-            active: false
+            href: "ABOUT"
         },
         {
             text: menu[2],
             // color: "var(--darkPink)",
-            active: false
+            href: "CONTACT"
         },
         {
             text: menu[3],
@@ -62,7 +62,7 @@ const NavDesktop = () => {
 
                     return (
 
-                        <DesktopLink key={`link-${text}`} href={link.text==="HOME" ? "#AppContainer" : `#${link.text}`} hoverColor={colors[index]} onClick={isLanguageLink ? toggleLanguage : null}>{text}</DesktopLink>
+                        <DesktopLink key={`link-${text}`} href={link.text==="HOME" ? "#AppContainer" : `#${link.href}`} hoverColor={colors[index]} onClick={isLanguageLink ? toggleLanguage : null}>{text}</DesktopLink>
                     )
                 })}
             </Links>
@@ -81,9 +81,9 @@ const Container = styled.div`
     position: sticky;
     top: 0%;
     /* background: transparent; */
-    background: linear-gradient(180deg, rgba(0,0,0,0.8) 55%, rgba(0,0,0,0.5) 80%, rgba(0,0,0,0.34) 90%, rgba(0,0,0,0.15) 95%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 75%, rgba(0,0,0,0.7) 85%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0.3) 93%, rgba(0,0,0,0.1) 95%, rgba(255,255,255,0) 100%); 
     letter-spacing: 0.2rem;
-    z-index: 2;
+    z-index: 9;
 
     /* border: 1px solid fuchsia; */
 `;
